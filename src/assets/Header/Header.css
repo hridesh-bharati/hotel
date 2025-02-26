@@ -1,0 +1,10 @@
+.navbar a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
+    padding: 5px;
+}
+.navbar a:hover {
+    background: yellow;
+    color: black;
+}
