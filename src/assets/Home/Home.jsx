@@ -7,7 +7,7 @@ function Home() {
     return (
         <div>
             {/* Hero Section */}
-            <section className="hero-section bg-primary  text-white text-center py-5 mainbg" >
+            <section className="hero-section text-white text-center py-5 mainbg" >
                 <div className="head-title">
                     <h1>Welcome to Our Hotel</h1>
                     <p>Your perfect place for relaxation and comfort</p>
