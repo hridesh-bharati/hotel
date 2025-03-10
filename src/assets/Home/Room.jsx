@@ -59,7 +59,7 @@ function Room() {
                                     </div>
                                     <p className="text-secondary">{room.description}</p>
                                 </div>
-                                <button className="btn btn-primary btn-lg w-100 mt-2">Check Availability</button>
+                                {/* <button className="btn btn-primary btn-lg w-100 mt-2">Check Availability</button> */}
                             </div>
                         </div>
                     </div>
@@ -67,7 +67,7 @@ function Room() {
             </div>
             <div className="row my-4">
                 <div className="col-12 text-center">
-                    <Link className='btn btn-primary btn-lg' to="/rooms/all">Explore More</Link>
+                    <Link className='btn btn-primary rounded-1 btn-lg' to="/rooms/all">Explore More & Book</Link>
                 </div>
             </div>
         </section>
