@@ -1,16 +1,23 @@
-🏨 Hotel Booking MERN App
-A modern hotel booking application built using the MERN stack (MongoDB, Express, React, Node.js).
-This project allows users to browse available rooms, check availability, apply discount coupons, and proceed with bookings seamlessly.
+# 🏨 Hotel Booking MERN App  
 
-🚀 Features
-✅ Room Listing – Browse all available rooms.
-✅ Booking System – Select rooms, check availability, and book.
-✅ Coupon Discounts – Apply promo codes for discounts.
-✅ Interactive UI – Built with React.js and Tailwind CSS.
-✅ Secure Routing – Implemented with React Router.
-✅ Backend Integration – Connected with a Node.js & Express API (coming soon).
+A modern **hotel booking application** built using the **MERN stack (MongoDB, Express, React, Node.js)**.  
+This project allows users to browse available rooms, check availability, apply discount coupons, and proceed with bookings seamlessly.  
 
-📦 hotel-booking-app
+---
+
+## 🚀 Features  
+
+| Feature | Description |
+|---------|------------|
+| ✅ **Room Listing** | Browse all available rooms |
+| ✅ **Booking System** | Select rooms, check availability, and book |
+| ✅ **Coupon Discounts** | Apply promo codes for discounts |
+| ✅ **Interactive UI** | Built with React.js and Tailwind CSS |
+| ✅ **Secure Routing** | Implemented with React Router |
+| ✅ **Backend Integration** | Connected with a Node.js & Express API (coming soon) |
+
+---
+
 ## 📂 Project Structure  
 
 | 📁 Folder / 📄 File       | Description |
@@ -23,7 +30,7 @@ This project allows users to browse available rooms, check availability, apply d
 | ┃ ┃ ┗ `📜 Footer.jsx`    | Footer layout |
 | ┃ ┣ `📂 Home`            | Home page |
 | ┃ ┃ ┣ `📜 Home.jsx`      | Home layout |
-| ┃ ┃ ┗ `📂 Rooms`        | Rooms section |
+| ┃ ┃ ┗ `📂 Rooms`         | Rooms section |
 | ┃ ┃ ┃ ┣ `📜 Room_set.jsx` | Room listing component |
 | ┃ ┃ ┃ ┗ `📜 Booking.jsx`  | Booking system |
 | ┃ ┣ `📂 About`           | About page |
@@ -37,6 +44,13 @@ This project allows users to browse available rooms, check availability, apply d
 | ┣ `📜 README.md`         | Project documentation |
 | ┗ `📜 index.js`          | Entry point of the app |
 
+---
+
+
+1️⃣ **Clone the repository**  
+```sh
+git clone https://github.com/hridesh-bharati/hotel.git
+cd hotel
 
 🔧 Installation & Setup
 ## 📂 Project Structure  
