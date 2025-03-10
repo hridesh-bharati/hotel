@@ -4,10 +4,11 @@ import '../../App.css';
 import Room from './Room';
 
 function Home() {
+  
     return (
         <div>
             {/* Hero Section */}
-            <section className="hero-section text-white text-center py-5 mainbg" >
+            <section className="hero-section text-white text-center py-5 mainbg" style={ { backgroundImage: 'url("img/carousel1.jpg")' } }>
                 <div className="head-title">
                     <h1>Welcome to Our Hotel</h1>
                     <p>Your perfect place for relaxation and comfort</p>
