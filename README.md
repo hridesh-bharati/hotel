@@ -11,40 +11,57 @@ This project allows users to browse available rooms, check availability, apply d
 ✅ Backend Integration – Connected with a Node.js & Express API (coming soon).
 
 📦 hotel-booking-app
-┣ 📂 assets
-┃ ┣ 📂 Header
-┃ ┃ ┗ 📜 Header.jsx
-┃ ┣ 📂 Footer
-┃ ┃ ┗ 📜 Footer.jsx
-┃ ┣ 📂 Home
-┃ ┃ ┣ 📜 Home.jsx
-┃ ┃ ┗ 📂 Rooms
-┃ ┃ ┣ 📜 Room_set.jsx
-┃ ┃ ┗ 📜 Booking.jsx
-┃ ┣ 📂 About
-┃ ┃ ┗ 📜 About.jsx
-┃ ┣ 📂 Facility
-┃ ┃ ┗ 📜 Facility.jsx
-┃ ┣ 📂 Contact
-┃ ┃ ┗ 📜 Contact.jsx
-┣ 📜 App.js
-┣ 📜 package.json
-┣ 📜 README.md
-┗ 📜 index.js
+## 📂 Project Structure  
+
+| 📁 Folder / 📄 File       | Description |
+|--------------------------|-------------|
+| `📦 hotel-booking-app`   | Root directory |
+| ┣ `📂 assets`            | Contains all UI components |
+| ┃ ┣ `📂 Header`          | Header component |
+| ┃ ┃ ┗ `📜 Header.jsx`    | Header layout |
+| ┃ ┣ `📂 Footer`          | Footer component |
+| ┃ ┃ ┗ `📜 Footer.jsx`    | Footer layout |
+| ┃ ┣ `📂 Home`            | Home page |
+| ┃ ┃ ┣ `📜 Home.jsx`      | Home layout |
+| ┃ ┃ ┗ `📂 Rooms`        | Rooms section |
+| ┃ ┃ ┃ ┣ `📜 Room_set.jsx` | Room listing component |
+| ┃ ┃ ┃ ┗ `📜 Booking.jsx`  | Booking system |
+| ┃ ┣ `📂 About`           | About page |
+| ┃ ┃ ┗ `📜 About.jsx`     | About layout |
+| ┃ ┣ `📂 Facility`        | Facility page |
+| ┃ ┃ ┗ `📜 Facility.jsx`  | Facility layout |
+| ┃ ┣ `📂 Contact`         | Contact page |
+| ┃ ┃ ┗ `📜 Contact.jsx`   | Contact form |
+| ┣ `📜 App.js`            | Main React App file |
+| ┣ `📜 package.json`      | Dependencies and scripts |
+| ┣ `📜 README.md`         | Project documentation |
+| ┗ `📜 index.js`          | Entry point of the app |
+
 
 🔧 Installation & Setup
-1️⃣ Clone the repository
-git clone https://github.com/hridesh-bharati/hotel.git
-cd hotel-booking-app
+## 📂 Project Structure  
 
-2️⃣ Install dependencies
-npm install
-
-3️⃣ Start the development server
-npm start
-
-4️⃣ Open the app in your browser
-http://localhost:3000
+- **📦 hotel-booking-app** *(Root directory)*
+  - **📂 assets** *(Contains all UI components)*
+    - **📂 Header**
+      - 📜 `Header.jsx` *(Header layout)*
+    - **📂 Footer**
+      - 📜 `Footer.jsx` *(Footer layout)*
+    - **📂 Home**
+      - 📜 `Home.jsx` *(Home page layout)*
+      - **📂 Rooms**
+        - 📜 `Room_set.jsx` *(Room listing component)*
+        - 📜 `Booking.jsx` *(Booking system)*
+    - **📂 About**
+      - 📜 `About.jsx` *(About page)*
+    - **📂 Facility**
+      - 📜 `Facility.jsx` *(Facility details)*
+    - **📂 Contact**
+      - 📜 `Contact.jsx` *(Contact form)*
+  - 📜 `App.js` *(Main React App file)*
+  - 📜 `package.json` *(Dependencies and scripts)*
+  - 📜 `README.md` *(Project documentation)*
+  - 📜 `index.js` *(Entry point of the app)*
 
 🎨 Tech Stack
 🔹 Frontend: React.js, Bootatrap
