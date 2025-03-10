@@ -1,159 +1,87 @@
+import { Link } from 'react-router-dom';
 import React from 'react';
 
 const roomsData = [
   {
     id: 1,
-    title: "Maharajgnj",
+    title: "Mumbai",
     location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic1.webp"
+    type: "Luxury Suite",
+    price: "₹5,999",
+    date: "12 Mar - 13 Mar",
+    description: "An elegant suite with a stunning city view and premium amenities.",
+    imgSrc: "/img/pic1.webp"
   },
   {
     id: 2,
-    title: "Maharajgnj",
+    title: "Goa",
     location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic2.webp"
+    type: "Beachfront Villa",
+    price: "₹8,499",
+    date: "15 Mar - 16 Mar",
+    description: "A beautiful villa by the beach with private pool and sunset view.",
+    imgSrc: "/img/pic2.webp"
   },
   {
     id: 3,
-    title: "Maharajgnj",
+    title: "Jaipur",
     location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic3.webp"
+    type: "Heritage Room",
+    price: "₹4,250",
+    date: "18 Mar - 19 Mar",
+    description: "A royal-themed room with antique decor and regal ambiance.",
+    imgSrc: "/img/pic3.webp"
   },
   {
     id: 4,
-    title: "Maharajgnj",
+    title: "Manali",
     location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic4.webp"
+    type: "Mountain Cabin",
+    price: "₹6,799",
+    date: "20 Mar - 21 Mar",
+    description: "Cozy wooden cabin in the mountains with a breathtaking valley view.",
+    imgSrc: "/img/room-1.jpg"
   },
   {
     id: 5,
-    title: "Maharajgnj",
+    title: "Kerala",
     location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic5.webp"
-  },
-  {
-    id: 6,
-    title: "Maharajgnj",
-    location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic6.webp"
-  },
-  {
-    id: 7,
-    title: "Maharajgnj",
-    location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic7.webp"
-  },
-  {
-    id: 8,
-    title: "Maharajgnj",
-    location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic8.webp"
-  },
-  {
-    id: 9,
-    title: "Maharajgnj",
-    location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic9.webp"
-  },
-  {
-    id: 10,
-    title: "Maharajgnj",
-    location: "India",
-    type: "Deluxe Room",
-    price: "₹3,474",
-    date: "8 Mar - 9 Mar",
-    description: "Spacious and luxurious room with a king-size bed.",
-    imgSrc: "img/pic10.webp"
+    type: "Houseboat Stay",
+    price: "₹7,999",
+    date: "22 Mar - 23 Mar",
+    description: "Experience a stay on a luxurious houseboat in the serene backwaters.",
+    imgSrc: "/img/room-2.jpg"
   }
 ];
 
-function Room_set() {
+function Room_Set() {
   return (
-    <div>
-      <section className="services container bg-light py-5">
-        <h1 className="fw-bold">Hot hotel deals right now</h1>
-        <div className="row row-cols-1 row-cols-md-3 g-4">
-          {roomsData.map(room => (
-            <div className="col" key={room.id}>
-              <div className="card">
-                <img src={room.imgSrc} className="card-img-top" alt={room.title} />
-                <div className="card-body">
-                  <div className="d-flex justify-content-between">
-                    <h4 className="card-title text-primary fw-bolder">{room.title}</h4>
-                    <button className="btn btn-light"> <i className="bi bi-geo-alt-fill"></i> {room.location}</button>
-                  </div>
-                  <div className="bg-light p-3">
-                    <h5 className="card-subtitle mb-2 text-danger">{room.type}</h5>
-                    <h5>{room.price}</h5>
-                    <div className="d-flex justify-content-between">
-                      <h5 className="card-title"> per night</h5>
-                      <span>{room.date}</span>
-                    </div>
-                    <p>{room.description}</p>
-                  </div>
-                  <button className="btn btn-primary btn-lg w-100">Check Availability</button>
+    <section className="container py-5">
+      <h1 className="fw-bold text-center mb-4">🌟 Exclusive Hotel Deals Now</h1>
+      <div className="row row-cols-1 row-cols-md-3 g-4">
+        {roomsData.map(room => (
+          <div className="col" key={room.id}>
+            <div className="card shadow-lg border-0 rounded-4 overflow-hidden">
+              <img src={room.imgSrc} className="card-img-top" alt={room.title} />
+              <div className="card-body">
+                <div className="d-flex justify-content-between align-items-center">
+                  <h4 className="fw-bold text-primary">{room.title}</h4>
+                  <span className="badge bg-danger p-2">{room.type}</span>
                 </div>
+                <p className="text-muted"><i className="bi bi-geo-alt-fill"></i> {room.location}</p>
+                <h5 className="text-danger">💰 {room.price} <small className="text-muted">/ per night</small></h5>
+                <h6 className="text-muted">📅 {room.date}</h6>
+                <p className="text-secondary">{room.description}</p>
+                <Link className="btn btn-success w-100 py-2 fw-bold" to={`/book/${room.id}`}>
+                  🏨 Book Now
+                </Link>
               </div>
             </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Call-to-Action Section */}
-      <section className="cta-section py-5 bg-primary text-white text-center">
-        <h2 className="fw-bold mb-4">Book Your Dream Stay Today!</h2>
-        <p className="mb-4">Don't miss out on these amazing deals. Book now and enjoy a luxurious stay.</p>
-        <button className="btn btn-light btn-lg">Book Now</button>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-dark text-white py-4">
-        <div className="container text-center">
-          <p>&copy; 2025 Your Hotel Name. All Rights Reserved.</p>
-          <p>
-            <a href="/terms" className="text-white">Terms & Conditions</a> | 
-            <a href="/privacy" className="text-white"> Privacy Policy</a>
-          </p>
-        </div>
-      </footer>
-    </div>
+          </div>
+        ))}
+      </div>
+    </section>
   );
 }
 
-export default Room_set;
+export default Room_Set;

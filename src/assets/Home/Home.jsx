@@ -4,17 +4,21 @@ import '../../App.css';
 import Room from './Room';
 
 function Home() {
-  
+
     return (
         <div>
             {/* Hero Section */}
-            <section className="hero-section text-white text-center py-5 mainbg" style={ { backgroundImage: 'url("img/carousel1.jpg")' } }>
+            <section className="hero-section text-white text-center py-5 mainbg" style={{ backgroundImage: 'url("img/carousel1.jpg")' }}>
                 <div className="head-title">
                     <h1>Welcome to Our Hotel</h1>
-                    <p>Your perfect place for relaxation and comfort</p>
-                    <Link to="/rooms" className="btn btn-light btn-lg">
-                        Explore Rooms
+                    <p className='mb-4'>Your perfect place for relaxation and comfort</p>
+                    <Link to="/rooms" className="animated-border m-3 btn-lg">
+                        Rooms
                     </Link>
+                    <Link to="/facilities" className="animated-border m-3 btn-lg">
+                        Facilities
+                    </Link>
+
                 </div>
             </section>
 
@@ -69,6 +73,7 @@ function Home() {
             {/* Services Section */}
             {/* <Services /> */}
             <Room />
+            
             {/* Call to Action */}
             <section className="cta bg-primary-subtle text-center py-5">
                 <div className="container">

@@ -1,177 +1,150 @@
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import { MdRestaurantMenu } from 'react-icons/md';
-import { FaRegClock } from 'react-icons/fa';
+import { MdHotel, MdOutlineRoomService } from 'react-icons/md';
+import { FaRegStar, FaUsers, FaAward } from 'react-icons/fa';
 
 function About() {
-  // Team members data
   const teamMembers = [
     {
-      name: 'Chef [Name]',
-      role: 'Chef',
+      name: 'John Doe',
+      role: 'General Manager',
       image: 'img/team-1.jpg',
-      description: 'With over [X] years of experience, Chef [Name] brings creativity and passion to every dish served. They specialize in [cuisine type] and bring an innovative approach to classic recipes.'
+      description: 'With 20+ years of experience, John ensures the highest standards of hospitality and guest satisfaction.'
     },
     {
-      name: 'Sous Chef [Name]',
-      role: 'Sous Chef',
+      name: 'Sophia Williams',
+      role: 'Executive Chef',
       image: 'img/team-2.jpg',
-      description: 'Sous Chef [Name] is known for their expertise in [specialty dish]. Their attention to detail ensures the kitchen runs smoothly, and every dish is prepared to perfection.'
+      description: 'Sophia crafts world-class culinary experiences using the freshest ingredients and innovative techniques.'
     },
     {
-      name: 'Waitstaff [Name]',
-      role: 'Waitstaff',
+      name: 'Michael Smith',
+      role: 'Front Desk Manager',
       image: 'img/team-3.jpg',
-      description: '[Name] is dedicated to providing a warm and welcoming atmosphere, ensuring an exceptional dining experience for every guest. Their friendly demeanor and attention to detail make all the difference.'
+      description: 'Michael provides a seamless check-in experience, ensuring every guest receives a warm welcome.'
     }
   ];
 
-  // Featured dishes data
-  const dishes = [
+  const rooms = [
     {
-      name: 'Dish 1: Dish Name 1',
-      image: 'img/dish1.jpg',
-      description: 'A delicious combination of flavors that will tantalize your taste buds. Perfect for those who love [flavor profile].'
+      name: 'Deluxe Suite',
+      image: 'img/room-2.jpg',
+      description: 'Spacious, elegant, and equipped with modern amenities for a luxurious stay.'
     },
     {
-      name: 'Dish 2: Dish Name 2',
-      image: 'img/dish2.jpg',
-      description: 'This signature dish is crafted with the finest ingredients and will leave you craving more. A true representation of our [cuisine type].'
+      name: 'Executive Room',
+      image: 'img/room-2.jpg',
+      description: 'A perfect blend of comfort and convenience, ideal for business travelers.'
     },
     {
-      name: 'Dish 3: Dish Name 3',
-      image: 'img/dish3.jpg',
-      description: 'A flavorful blend of spices and fresh ingredients. A must-try for anyone who loves [specific ingredient].'
+      name: 'Presidential Suite',
+      image: 'img/room-2.jpg',
+      description: 'An exclusive suite offering breathtaking views and top-tier services.'
     }
   ];
-
-  // Awards data
-  const awards = [
-    {
-      title: 'Best Fine Dining Restaurant',
-      organization: '[Award Organization]',
-      year: '[Year]'
-    },
-    {
-      title: 'Top 10 Restaurants in [Location]',
-      organization: '[Restaurant Guide]',
-      year: '[Year]'
-    },
-    {
-      title: 'Customer Favorite',
-      organization: '[Award Organization]',
-      year: '[Year]'
-    }
-  ];
-
+  const aboutcaption = {
+    width: "150px",
+    height: '140px',
+    borderRadius: "100%"
+  }
   return (
-    <section className="about container py-5">
-      {/* Section Heading */}
-      <h1 className="fw-bold text-center mb-5 text-primary">About Us</h1>
+    <section className="container py-5">
+      {/* Banner */}
+      <div className="text-center mb-5">
+        {/* <img src="img/room-2.jpg" className="img-fluid shadow-lg" alt="Hotel" style={aboutcaption} /> */}
+        <h1 className="text-primary fw-bold mt-3">About Our Hotel</h1>
+        <p className="text-muted">Experience world-class hospitality and luxury at [Hotel Name].</p>
+      </div>
 
       {/* Our Story */}
-      <div className="row my-4">
+      <div className="row align-items-center mb-5">
         <div className="col-md-6">
-          <h2 className="text-primary mb-3"><MdRestaurantMenu size={40} /> Our Story</h2>
+          <h2 className="text-primary"><MdHotel size={32} /> Our Story</h2>
           <p>
-            Welcome to [Restaurant Name], where culinary excellence meets a warm and inviting atmosphere. Founded in [Year], our restaurant has been a beloved destination for food lovers in [Location]. Our journey began with a passion for creating delicious, high-quality dishes that celebrate the rich flavors of [Cuisine Type].
+            Welcome to <strong>[Hotel Name]</strong>, where elegance meets comfort. Established in [Year], we have been redefining luxury with our impeccable service, modern amenities, and breathtaking ambiance.
           </p>
           <p>
-            Over the years, we have grown from a small eatery to a renowned dining establishment, known for our commitment to using fresh, locally sourced ingredients. Our chefs are dedicated to crafting innovative dishes that honor traditional recipes while adding a modern twist.
+            Nestled in the heart of [Location], our hotel offers an oasis of relaxation and sophistication, ensuring a memorable stay for every guest.
           </p>
         </div>
         <div className="col-md-6">
-          <img src="img/room-1.jpg" className="img-fluid rounded shadow-lg" alt="Restaurant Interior" />
+          <img src="img/room-1.jpg" className="img-fluid rounded shadow" alt="Hotel Lobby" />
         </div>
       </div>
 
-      {/* Mission and Values */}
-      <div className="row my-4">
+      {/* Mission & Values */}
+      <div className="row my-5">
         <div className="col-md-6">
-          <h2 className="text-primary mb-3"><FaRegClock size={40} /> Our Mission</h2>
+          <h2 className="text-primary"><MdOutlineRoomService size={32} /> Our Mission</h2>
           <p>
-            At [Restaurant Name], our mission is to provide an unforgettable dining experience that delights the senses. We strive to create a welcoming environment where guests can enjoy exceptional food, outstanding service, and a memorable atmosphere. Our goal is to exceed your expectations with every visit.
+            Our mission is to deliver unparalleled hospitality experiences that leave a lasting impression. We strive to provide our guests with luxury, comfort, and world-class service.
           </p>
         </div>
         <div className="col-md-6">
-          <h2 className="text-primary mb-3"><FaRegClock size={40} /> Our Values</h2>
+          <h2 className="text-primary"><FaRegStar size={32} /> Our Values</h2>
           <ul className="list-unstyled">
-            <li><i className="bi bi-check-circle-fill text-success"></i> Quality: We believe in using only the finest ingredients to create our dishes.</li>
-            <li><i className="bi bi-check-circle-fill text-success"></i> Community: We are committed to supporting local farmers and businesses.</li>
-            <li><i className="bi bi-check-circle-fill text-success"></i> Innovation: We embrace creativity and continuously seek to improve our menu.</li>
-            <li><i className="bi bi-check-circle-fill text-success"></i> Hospitality: We treat every guest like family and aim to provide exceptional service.</li>
+            <li><i className="bi bi-check-circle-fill text-success"></i> Excellence: We exceed expectations in every detail.</li>
+            <li><i className="bi bi-check-circle-fill text-success"></i> Integrity: Honesty and transparency define our service.</li>
+            <li><i className="bi bi-check-circle-fill text-success"></i> Guest-Centric: We put our guests at the heart of everything we do.</li>
+            <li><i className="bi bi-check-circle-fill text-success"></i> Sustainability: We are committed to eco-friendly practices.</li>
           </ul>
         </div>
       </div>
 
       {/* Meet Our Team */}
-      <div className="row my-4 text-center justify-content-center">
-        <div className="col-12">
-          <h2 className="text-primary mb-4">Meet Our Team</h2>
-        </div>
-        {teamMembers.map((member, index) => (
-          <div key={index} className="col-md-3 col-12 mb-5 d-flex flex-column align-items-center">
-            <img src={member.image} alt={member.role} className="rounded-circle mb-3 img-fluid" />
-            <h3>{member.name}</h3>
-            <p>{member.description}</p>
+      <h2 className="text-center text-primary fw-bold mb-4"><FaUsers size={28} /> Meet Our Team</h2>
+      <div className="row text-center">
+        {teamMembers.map(({ name, role, image, description }) => (
+          <div key={name} className="col-md-4 mb-4">
+            <div className="card shadow border-0">
+              <img src={image} alt={role} className="card-img-top rounded-circle p-5" />
+              <div className="card-body">
+                <h5 className="card-title text-danger">{name}</h5>
+                <p className="card-text"><strong>{role}</strong></p>
+                <p className="text-muted">{description}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Featured Menu Items */}
-      <div className="row my-4">
-        <div className="col-12 text-center">
-          <h2 className="text-primary mb-4">Featured Menu Items</h2>
-        </div>
-        {dishes.map((dish, index) => (
-          <div key={index} className="col-md-4">
-            <img src={dish.image} alt={dish.name} className="img-fluid rounded mb-3" />
-            <h3>{dish.name}</h3>
-            <p>{dish.description}</p>
+      {/* Room Showcase */}
+      <h2 className="text-center text-primary fw-bold my-5">Our Luxurious Rooms</h2>
+      <div className="row">
+        {rooms.map(({ name, image, description }) => (
+          <div key={name} className="col-md-4 mb-4">
+            <div className="card shadow border-0">
+              <img src={image} alt={name} className="card-img-top rounded" />
+              <div className="card-body text-center">
+                <h5 className="card-title">{name}</h5>
+                <p className="text-muted">{description}</p>
+              </div>
+            </div>
           </div>
         ))}
       </div>
 
-      {/* Customer Testimonials */}
-      <div className="row my-4">
-        <div className="col-12">
-          <h2 className="text-primary text-center mb-4">What Our Guests Are Saying</h2>
-          <div className="testimonial d-flex flex-column align-items-center">
-            <p>"The food at [Restaurant Name] is absolutely incredible! Every dish was bursting with flavor, and the atmosphere was perfect for our anniversary dinner." - Customer A</p>
-          </div>
-          <div className="testimonial d-flex flex-column align-items-center">
-            <p>"A hidden gem in [Location]! The staff is so friendly and the food is top-notch. Highly recommend the [dish name]!" - Customer B</p>
-          </div>
+      {/* Testimonials */}
+      <div className="bg-light p-4 rounded shadow my-5">
+        <h2 className="text-center text-primary fw-bold">Guest Reviews</h2>
+        <div className="text-center mt-3">
+          <p className="fst-italic">"An unforgettable stay! The service, the rooms, and the ambiance were simply amazing." - Guest A</p>
+          <p className="fst-italic">"One of the best hotels I’ve ever stayed in. Highly recommended!" - Guest B</p>
         </div>
       </div>
 
-      {/* Awards and Recognition */}
-      <div className="row my-4">
-        <div className="col-12 text-center">
-          <h2 className="text-primary mb-4">Awards & Recognition</h2>
-          <p>[Restaurant Name] is proud to have been recognized with several prestigious awards, including:</p>
+      {/* Awards & Recognition */}
+      <div className="row my-5 text-center">
+        <h2 className="text-primary fw-bold mb-3"><FaAward size={28} /> Awards & Recognition</h2>
+        <div className="col-md-12">
+          <p className="text-muted">We are proud to be recognized for our excellence in hospitality.</p>
           <ul className="list-inline">
-            {awards.map((award, index) => (
-              <li key={index} className="list-inline-item">
-                <i className="bi bi-trophy-fill text-warning"></i> {award.title} - {award.organization} - {award.year}
-              </li>
-            ))}
+            <li className="list-inline-item"><i className="bi bi-trophy-fill text-warning"></i> Best Luxury Hotel - 2023</li>
+            <li className="list-inline-item"><i className="bi bi-trophy-fill text-warning"></i> Top 10 Hotels in [Location]</li>
+            <li className="list-inline-item"><i className="bi bi-trophy-fill text-warning"></i> Traveler’s Choice Award</li>
           </ul>
         </div>
       </div>
 
-      {/* Social Media Links */}
-      <div className="row my-2">
-        <div className="col-12 text-center">
-          <h2 className="text-primary mb-4">Follow Us</h2>
-          <div className="social-links mb-4">
-            <a href="https://facebook.com" className="btn btn-social me-2"><FaFacebook size={30} /></a>
-            <a href="https://twitter.com" className="btn btn-social me-2"><FaTwitter size={30} /></a>
-            <a href="https://instagram.com" className="btn btn-social me-2"><FaInstagram size={30} /></a>
-            <a href="https://linkedin.com" className="btn btn-social me-2"><FaLinkedin size={30} /></a>
-          </div>
-        </div>
-      </div>
     </section>
   );
 }

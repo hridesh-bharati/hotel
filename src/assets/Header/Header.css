@@ -1,3 +1,8 @@
+.navbar-brand{
+    width: auto !important;
+    height: 80px !important;
+}
+
 .navbar a {
     color: white;
     font-size: 20px;
