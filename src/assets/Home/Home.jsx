@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../../App.css';
-import Services from './Service';
-import Feature from './Feature';
+import Room from './Room';
 
 function Home() {
     return (
@@ -68,9 +67,9 @@ function Home() {
 
             {/* Services Section */}
             {/* <Services /> */}
-            <Feature />
+            <Room />
             {/* Call to Action */}
-            <section className="cta bg-primary text-white text-center py-5">
+            <section className="cta bg-primary-subtle text-center py-5">
                 <div className="container">
                     <h2>Book Your Stay Today!</h2>
                     <p>Experience the best comfort and service at our hotel. Book now and enjoy special offers.</p>

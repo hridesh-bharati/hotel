@@ -1,6 +1,6 @@
 import React from 'react';
-
-function Feature() {
+import { Link } from 'react-router-dom';
+function Room() {
     return (
         <section className="services container bg-light py-5">
             <h1 className="fw-bold">Hot hotel deals right now</h1>
@@ -71,12 +71,11 @@ function Feature() {
             </div>
             <div className="row my-3">
                 <div className="col-12 text-end">
-                    <button className='btn btn-primary'>Explore More</button>
-
+                    <Link className='btn btn-primary' to="/rooms">Explore More</Link>
                 </div>
             </div>
         </section>
     );
 }
 
-export default Feature;
+export default Room;
