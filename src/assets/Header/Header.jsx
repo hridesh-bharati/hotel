@@ -28,7 +28,7 @@ export default function Header() {
                         </li>
                     </ul>
                     <form className="d-flex" role="search">
-                        <button className="btn btn-warning fw-bolder" type="submit">Book Now</button>
+                        <button className="btn btn-warning fw-bolder" type="submit">Login</button>
                     </form>
                 </div>
             </div>
