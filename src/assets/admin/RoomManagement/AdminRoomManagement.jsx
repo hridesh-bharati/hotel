@@ -1,34 +1,9 @@
-import React, { useState, useEffect } from "react";
-import { getRooms, deleteRoom } from "../service/api.js"
-import { Link } from "react-router-dom";
+import React from 'react'
 
-const AdminRoomManagement = () => {
-  const [rooms, setRooms] = useState([]);
-
-  useEffect(() => {
-    getRooms().then((data) => setRooms(data));
-  }, []);           
-
-  const handleDeleteRoom = (roomId) => {
-    deleteRoom(roomId).then(() => {
-      setRooms(rooms.filter((room) => room.id !== roomId));
-    });
-  };
-
+export default function AdminRoomManagement() {
   return (
     <div>
-      <h3>Manage Rooms</h3>
-      <Link to="/admin/rooms/add">Add New Room</Link>
-      <ul>
-        {rooms.map((room) => (
-          <li key={room.id}>
-            <span>{room.name}</span>
-            <button onClick={() => handleDeleteRoom(room.id)}>Delete</button>
-          </li>
-        ))}
-      </ul>
+      AdminRoomManagement
     </div>
-  );
-};
-
-export default AdminRoomManagement;
+  )
+}

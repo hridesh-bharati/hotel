@@ -15,6 +15,7 @@ import AdminDashboard from "./assets/admin/Dashboard/AdminDashboard";
 import AdminRoomManagement from "./assets/admin/RoomManagement/AdminRoomManagement";
 import AddRoom from "./assets/admin/RoomManagement/AddRoom";
 import AdminBookingManagement from "./assets/admin/BookingManagement/AdminBookingManagement";
+import EditRoom from "./assets/admin/RoomManagement/EditRoom";
 
 const App = () => (
   <Router>
@@ -32,6 +33,8 @@ const App = () => (
       <Route path="/admin" element={<AdminDashboard />} />
       <Route path="/admin/rooms" element={<AdminRoomManagement />} />
       <Route path="/admin/rooms/add" element={<AddRoom />} />
+      <Route path="/admin/rooms/edit" element={<EditRoom />} />
+
       <Route path="/admin/bookings" element={<AdminBookingManagement />} />
     </Routes>
     {/* <Footer /> */}

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { ProgressBar } from 'react-bootstrap'; 
-import { FaBed, FaRegUser, FaCalendarCheck, FaDollarSign } from 'react-icons/fa'; 
-import { Pie } from 'react-chartjs-2'; 
+import { ProgressBar } from 'react-bootstrap';
+import { FaBed, FaRegUser, FaCalendarCheck, FaDollarSign } from 'react-icons/fa';
+import { Pie } from 'react-chartjs-2';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, LineElement, CategoryScale, LinearScale } from 'chart.js';
 
 // Registering the chart elements
@@ -54,87 +54,35 @@ export default function AdminHome() {
   }
 
   return (
-    <div className="container mt-5">
-      <h3 className="text-center mb-4">Hotel Overview</h3>
-
-      <div className="row mt-4">
-        <div className="col-12 col-md-4">
-          <div className="card shadow-sm">
-            <div className="card-header bg-warning text-dark">
-              <h5 className="card-title">Quick Stats</h5>
-            </div>
-            <div className="card-body text-center">
-              <h6>Total Rooms</h6>
-              <p className="display-4">{totalRooms} <FaBed className="text-primary" /></p>
-              <p className="text-muted">Total rooms in the hotel.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-4">
-          <div className="card shadow-sm">
-            <div className="card-header bg-info text-white">
-              <h5 className="card-title">Total Users</h5>
-            </div>
-            <div className="card-body text-center">
-              <h6>Total Users</h6>
-              <p className="display-4">{totalUsers} <FaRegUser className="text-success" /></p>
-              <p className="text-muted">Users who have booked or registered in the system.</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-4">
-          <div className="card shadow-sm">
-            <div className="card-header bg-secondary text-white">
-              <h5 className="card-title">Upcoming Bookings</h5>
-            </div>
-            <div className="card-body text-center">
-              <h6>Upcoming Bookings</h6>
-              <p className="display-4">{upcomingBookings} <FaCalendarCheck className="text-danger" /></p>
-              <p className="text-muted">Bookings that are scheduled for the coming days.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="row mt-3">
-        <div className="col-12 col-md-4">
+    <div className="container-fluid">
+      <h1 className="text-center p-3 fw-bolder text-body-secondary">Hotel Overview</h1>
+      <div className="row">
+        <div className="col-12 col-md-6 my-2">
           <div className="card shadow-sm">
             <div className="card-header bg-danger text-white">
               <h5 className="card-title">Hotel Status</h5>
             </div>
-            <div className="card-body">
-              <p>The hotel is currently running at full capacity with all rooms booked for the next 7 days.</p>
-              <p><strong>Occupancy Rate:</strong> 85%</p>
-              <ProgressBar now={85} />
+            <div className="card-body d-flex">
+              <p className="display-4 me-3">{totalUsers} <FaRegUser className="text-success" /></p>
+              <div>
+                <h5 className="text-muted">Users who have booked or registered in the system.</h5>
+                <p>The hotel is currently running at full capacity with all rooms booked for the next 7 days.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div className="col-12 col-md-4">
+        <div className="col-12  col-md-6 my-2">
           <div className="card shadow-sm">
             <div className="card-header bg-primary text-white">
               <h5 className="card-title">Total Bookings</h5>
             </div>
-            <div className="card-body">
-              <p>Total bookings made this month: <strong>{totalBookings}</strong></p>
-              <p><strong>Upcoming Bookings:</strong> {upcomingBookings}</p>
-            </div>
-          </div>
-        </div>
-
-        <div className="col-12 col-md-4">
-          <div className="card shadow-sm">
-            <div className="card-header bg-success text-white">
-              <h5 className="card-title">Recent Activities</h5>
-            </div>
-            <div className="card-body">
-              <ul>
-                <li>Booking confirmed for John Doe in Room 101 (Check-in: March 12th)</li>
-                <li>Booking canceled by Sarah Smith for Room 202</li>
-                <li>New user registered: Emily Johnson (Guest)</li>
-              </ul>
+            <div className="card-body d-flex">
+              <p className="display-4 me-3">{upcomingBookings} <FaCalendarCheck className="text-danger" /></p>
+              <div>
+                <h5 className="text-muted">Bookings that are scheduled for the coming days.</h5>
+                <p>Total bookings made this month: <strong>{totalBookings}</strong></p>
+              </div>
             </div>
           </div>
         </div>
@@ -176,24 +124,6 @@ export default function AdminHome() {
           </div>
         </div>
       </div>
-
-      <div className="row mt-4">
-        <div className="col-12">
-          <div className="card shadow-sm">
-            <div className="card-header bg-dark text-white">
-              <h5 className="card-title">Recent Reviews</h5>
-            </div>
-            <div className="card-body">
-              <ul>
-                <li><strong>John Doe:</strong> "Great stay, would definitely recommend!"</li>
-                <li><strong>Emily Johnson:</strong> "The service was excellent, but the room could be improved."</li>
-                <li><strong>Michael Smith:</strong> "Nice location and friendly staff!"</li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
     </div>
   );
 }

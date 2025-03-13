@@ -1,113 +1,85 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import './AdminDashboard.css';
-import AdminHome from './AdminHome';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import AdminHome from "./AdminHome.jsx";
+import AdminRoomManagement from "../RoomManagement/AdminRoomManagement.jsx";
+import AddRoom from "../RoomManagement/AddRoom.jsx";
+import EditRoom from "../RoomManagement/EditRoom.jsx";
+import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
-  const [activeTab, setActiveTab] = useState('home'); // Manage active tab
+  const [activeTab, setActiveTab] = useState("home");
+  const [isSidebarHidden, setIsSidebarHidden] = useState(false);
 
-  // Handle tab change
-  const handleTabChange = (tab) => {
-    setActiveTab(tab);
+  const tabComponents = {
+    home: <AdminHome />,
+    rooms: <AdminRoomManagement />,
+    AddRoom: <AddRoom />,
+    editRoom: <EditRoom />,
+    users: <h3>Manage Users</h3>,
+    settings: <h3>Manage Settings</h3>,
   };
 
   return (
     <div className="admin-dashboard-container">
       {/* Sidebar */}
-      <div className="admin-sidebar">
-        <div className="sidebar-header">
-          <h3>Admin Panel</h3>
+      {!isSidebarHidden && (
+        <div className="admin-sidebar">
+          <div className="sidebar-header">
+            <h3>Admin Panel</h3>
+            {/* Sidebar Toggle Button (Moves with Sidebar) */}
+            <button
+              className="toggle-sidebar-btn"
+              onClick={() => setIsSidebarHidden(!isSidebarHidden)}
+              aria-label={isSidebarHidden ? "Expand Sidebar" : "Collapse Sidebar"}
+            >
+              {isSidebarHidden ? "☰" : "X"}
+            </button>
+
+          </div>
+          <nav className="sidebar-nav">
+            <ul>
+              {[
+                { key: "home", icon: "fa-tachometer-alt", label: "Overview" },
+                { key: "rooms", icon: "fa-bed", label: "All Rooms" },
+                { key: "AddRoom", icon: "fa-plus-square", label: "Add Room" },
+                { key: "editRoom", icon: "fa-edit", label: "Edit Room" },
+                { key: "users", icon: "fa-users", label: "Manage Users" },
+                { key: "settings", icon: "fa-cogs", label: "Settings" },
+              ].map(({ key, icon, label }) => (
+                <li key={key}>
+                  <button
+                    className={`nav-link ${activeTab === key ? "active" : ""}`}
+                    onClick={() => setActiveTab(key)}
+                    aria-label={label}
+                  >
+                    <i className={`fas ${icon}`}></i> {label}
+                  </button>
+                </li>
+              ))}
+              <li>
+                <Link to="/logout" className="nav-link">
+                  <i className="fas fa-sign-out-alt"></i> Logout
+                </Link>
+              </li>
+            </ul>
+          </nav>
         </div>
-        <nav className="sidebar-nav">
-          <ul>
-            <li>
-              <button
-                className={`nav-link ${activeTab === 'home' ? 'active' : ''}`}
-                onClick={() => handleTabChange('home')}
-              >
-                <i className="fas fa-tachometer-alt"></i> Overview
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${activeTab === 'rooms' ? 'active' : ''}`}
-                onClick={() => handleTabChange('rooms')}
-              >
-                <i className="fas fa-bed"></i> Manage Rooms
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${activeTab === 'bookings' ? 'active' : ''}`}
-                onClick={() => handleTabChange('bookings')}
-              >
-                <i className="fas fa-bookmark"></i> Manage Bookings
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${activeTab === 'users' ? 'active' : ''}`}
-                onClick={() => handleTabChange('users')}
-              >
-                <i className="fas fa-users"></i> Manage Users
-              </button>
-            </li>
-            <li>
-              <button
-                className={`nav-link ${activeTab === 'settings' ? 'active' : ''}`}
-                onClick={() => handleTabChange('settings')}
-              >
-                <i className="fas fa-cogs"></i> Settings
-              </button>
-            </li>
-            <li>
-              <Link to="/logout" className="nav-link">
-                <i className="fas fa-sign-out-alt"></i> Logout
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
+      )}
+
+      {/* Sidebar Toggle Button (Only when collapsed) */}
+      {isSidebarHidden && (
+        <button
+          className="toggle-sidebar-btn fw-bolder open-btn"
+          onClick={() => setIsSidebarHidden(false)}
+          aria-label="Expand Sidebar"
+        >
+          ☰
+        </button>
+      )}
 
       {/* Main Content */}
-      <div className="admin-main-content">
-        {/* Tab Content */}
-        <div className="tab-content" id="v-pills-tabContent">
-          {activeTab === 'home' && (
-            <div className="tab-pane fade show active" id="v-pills-home">
-           <AdminHome />
-
-            </div>
-          )}
-
-          {activeTab === 'rooms' && (
-            <div className="tab-pane fade show active" id="v-pills-rooms">
-              <h3>Manage Rooms</h3>
-              <p>Overview of managing rooms...</p>
-            </div>
-          )}
-
-          {activeTab === 'bookings' && (
-            <div className="tab-pane fade show active" id="v-pills-bookings">
-              <h3>Manage Bookings</h3>
-              <p>Overview of managing bookings...</p>
-            </div>
-          )}
-
-          {activeTab === 'users' && (
-            <div className="tab-pane fade show active" id="v-pills-users">
-              <h3>Manage Users</h3>
-              <p>Overview of managing users...</p>
-            </div>
-          )}
-
-          {activeTab === 'settings' && (
-            <div className="tab-pane fade show active" id="v-pills-settings">
-              <h3>Settings</h3>
-              <p>Overview of settings...</p>
-            </div>
-          )}
-        </div>
+      <div className={`admin-main-content ${isSidebarHidden ? "full-width" : ""}`}>
+        {tabComponents[activeTab] || <h3>Page Not Found</h3>}
       </div>
     </div>
   );
