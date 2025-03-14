@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import AdminHome from "./AdminHome.jsx";
-import AdminRoomManagement from "../RoomManagement/AdminRoomManagement.jsx";
+import AllRoom from "../RoomManagement/AllRoom.jsx";
 import AddRoom from "../RoomManagement/AddRoom.jsx";
 import EditRoom from "../RoomManagement/EditRoom.jsx";
+import AllMessages from "../Messages/AllMessages.jsx";
+import AllRoomOrdered from "../BookingManagement/AllRoomOrdered.jsx";
 import "./AdminDashboard.css";
 
 const AdminDashboard = () => {
@@ -12,11 +14,11 @@ const AdminDashboard = () => {
 
   const tabComponents = {
     home: <AdminHome />,
-    rooms: <AdminRoomManagement />,
+    rooms: <AllRoom />,
     AddRoom: <AddRoom />,
     editRoom: <EditRoom />,
-    users: <h3>Manage Users</h3>,
-    settings: <h3>Manage Settings</h3>,
+    AllMessages: <AllMessages />,
+    Bokking: <AllRoomOrdered />,
   };
 
   return (
@@ -40,11 +42,11 @@ const AdminDashboard = () => {
             <ul>
               {[
                 { key: "home", icon: "fa-tachometer-alt", label: "Overview" },
-                { key: "rooms", icon: "fa-bed", label: "All Rooms" },
                 { key: "AddRoom", icon: "fa-plus-square", label: "Add Room" },
-                { key: "editRoom", icon: "fa-edit", label: "Edit Room" },
-                { key: "users", icon: "fa-users", label: "Manage Users" },
-                { key: "settings", icon: "fa-cogs", label: "Settings" },
+                { key: "rooms", icon: "fa-bed", label: "All Rooms" },
+                // { key: "editRoom", icon: "fa-edit", label: "Edit Room" },
+                { key: "AllMessages", icon: "fa-users", label: "Manage messages" },
+                { key: "Bokking", icon: "fa-cogs", label: "Booking" },
               ].map(({ key, icon, label }) => (
                 <li key={key}>
                   <button

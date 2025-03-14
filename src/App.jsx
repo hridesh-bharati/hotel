@@ -9,14 +9,11 @@ import Facility from "./assets/Facility/Facility";
 import Contact from "./assets/Contact/Contact";
 import Booking from "./assets/Home/Rooms/Booking";
 
-// Admin Pages
-
 import AdminDashboard from "./assets/admin/Dashboard/AdminDashboard";
-import AdminRoomManagement from "./assets/admin/RoomManagement/AdminRoomManagement";
+import AllRoom from "./assets/admin/RoomManagement/AllRoom";
 import AddRoom from "./assets/admin/RoomManagement/AddRoom";
-import AdminBookingManagement from "./assets/admin/BookingManagement/AdminBookingManagement";
 import EditRoom from "./assets/admin/RoomManagement/EditRoom";
-
+import AllMessages from "./assets/admin/Messages/AllMessages";
 const App = () => (
   <Router>
     <Header />
@@ -31,11 +28,10 @@ const App = () => (
 
       {/* Admin Routes */}
       <Route path="/admin" element={<AdminDashboard />} />
-      <Route path="/admin/rooms" element={<AdminRoomManagement />} />
+      <Route path="/admin/rooms" element={<AllRoom />} />
       <Route path="/admin/rooms/add" element={<AddRoom />} />
-      <Route path="/admin/rooms/edit" element={<EditRoom />} />
-
-      <Route path="/admin/bookings" element={<AdminBookingManagement />} />
+      <Route path="/admin/rooms/edit/:id" element={<EditRoom />} />
+      <Route path="/admin/messages" element={<AllMessages />} />
     </Routes>
     {/* <Footer /> */}
   </Router>

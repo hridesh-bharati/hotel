@@ -34,20 +34,39 @@ function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     if (validateForm()) {
-      // Handle form submission, e.g., send the data to an API or email service
-      console.log('Form submitted successfully', formData);
-      
-      // Reset the form
-      setFormData({
-        name: '',
-        email: '',
-        subject: '',
-        message: '',
-      });
+      // Submit the form data to the backend
+      try {
+        const response = await fetch('http://localhost:5000/api/contact/submit', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+        if (response.ok) {
+          console.log('Form submitted successfully:', data);
+          alert(data.message); // Show success message
+        } else {
+          console.error('Form submission failed:', data);
+          alert(data.message); // Show error message
+        }
+        
+        // Reset the form
+        setFormData({
+          name: '',
+          email: '',
+          subject: '',
+          message: '',
+        });
+      } catch (error) {
+        console.error('Error submitting the form:', error);
+      }
     }
   };
 

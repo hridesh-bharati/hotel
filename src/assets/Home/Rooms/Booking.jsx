@@ -1,27 +1,86 @@
-import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-
-const roomsData = [
-  { id: 1, title: "Mumbai", price: 5999, imgSrc: "/img/pic1.webp" },
-  { id: 2, title: "Goa", price: 8499, imgSrc: "/img/pic2.webp" },
-  { id: 3, title: "Jaipur", price: 4250, imgSrc: "/img/pic3.webp" },
-  { id: 4, title: "Manali", price: 6799, imgSrc: "/img/room-1.jpg" },
-  { id: 5, title: "Kerala", price: 7999, imgSrc: "/img/room-2.jpg" }
-];
+import React, { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom"; // Use `useNavigate` instead of `useHistory`
 
 const Booking = () => {
-  const { id } = useParams();
-  const room = roomsData.find((room) => room.id === parseInt(id));
-
+  const { id } = useParams(); // Get room ID from URL
+  const navigate = useNavigate(); // useNavigate to handle navigation
+  const [room, setRoom] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  
   const [nights, setNights] = useState(1);
   const [checkInDate, setCheckInDate] = useState("");
+  
+  // Fetch room details from the API
+  useEffect(() => {
+    const fetchRoom = async () => {
+      try {
+        const response = await fetch(`http://localhost:5000/api/rooms/${id}`); // Fetch room details by ID
+        if (!response.ok) {
+          throw new Error("Room not found");
+        }
+        const data = await response.json();
+        setRoom(data); // Set room data
+      } catch (err) {
+        setError(err.message); // Handle errors
+      } finally {
+        setLoading(false);
+      }
+    };
 
-  if (!room) {
-    return <h2 className="text-danger text-center mt-5">Room Not Found</h2>;
-  }
+    fetchRoom();
+  }, [id]); // Re-fetch if `id` changes
+
+  if (loading) return <p className="text-center">Loading...</p>;
+  if (error) return <p className="text-center text-danger">{error}</p>;
+  if (!room) return <p className="text-center text-danger">Room not found</p>;
 
   // Calculate total price
   const totalPrice = room.price * nights;
+
+  // Handle Booking Submission
+  // Client-side booking handling
+const handleBooking = async () => {
+  if (!checkInDate) {
+    alert('Please select a check-in date');
+    return;
+  }
+
+  const bookingData = {
+    roomId: room._id,
+    checkInDate,
+    nights,
+    totalPrice,
+  };
+
+  try {
+    const response = await fetch('http://localhost:5000/api/bookings', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(bookingData),
+    });
+
+    const data = await response.json();
+
+    if (response.ok) {
+      alert('Booking successful! Proceeding to payment...');
+      // Redirect to a payment page or other appropriate action
+    } else {
+      alert(data.message || 'Failed to book the room.');
+    }
+  } catch (error) {
+    console.error('Error processing the booking:', error);
+    alert('Error processing the booking');
+  }
+};
+
+
+  const handleCancelBooking = () => {
+    // Optionally redirect back to the previous page or home
+    navigate('/rooms'); // Redirect to rooms listing or home
+  };
 
   return (
     <div className="container my-5">
@@ -33,14 +92,14 @@ const Booking = () => {
               <div className="col-md-5">
                 <img
                   src={room.imgSrc}
-                  alt={room.title}
+                  alt={room.address}
                   className="img-fluid h-100 rounded-start object-fit-cover"
                 />
               </div>
 
               {/* Booking Details */}
               <div className="col-md-7 p-4">
-                <h2 className="fw-bold">{room.title}</h2>
+                <h2 className="fw-bold">{room.address}</h2>
                 <h4 className="text-danger">
                   ₹{room.price} <small className="text-muted">/ per night</small>
                 </h4>
@@ -80,10 +139,16 @@ const Booking = () => {
                 </h4>
 
                 {/* Action Buttons */}
-                <button className="btn btn-primary w-100 mt-3 fw-bold py-2 rounded-2">
+                <button
+                  className="btn btn-primary w-100 mt-3 fw-bold py-2 rounded-2"
+                  onClick={handleBooking}
+                >
                   Proceed to Payment
                 </button>
-                <button className="btn btn-outline-danger w-100 mt-2 fw-bold py-2 rounded-2">
+                <button
+                  className="btn btn-outline-danger w-100 mt-2 fw-bold py-2 rounded-2"
+                  onClick={handleCancelBooking}
+                >
                   Cancel Booking
                 </button>
               </div>
